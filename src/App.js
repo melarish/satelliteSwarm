@@ -17,18 +17,9 @@ class App extends Component {
       .then(res => res.json())
       .then(
         (result) => {
-          console.log(result.objects);
-          let swarm = [];
-          for (let satellite of result.objects) {
-            if (satellite.name.includes("SWARM")) {
-              console.log("unknown");
-              swarm.push(satellite);
-            }
-          }
-          console.log(swarm);
           this.setState({
             isLoaded: true,
-            items: swarm
+            items: result.results
           });
         },
         // Note: it's important to handle errors here
@@ -46,9 +37,9 @@ class App extends Component {
   render() {
     let tableData = null;
     if(this.state.items.length) {
-      tableData = this.state.items.map((el, i) => (
+      tableData = this.state.items.map((satellite) => (
         <tr>
-          <td>{el.catalogNumber}</td><td>{el.noradCatalogNumber}</td><td>{el.name}</td>
+          <td>{satellite.catalogNumber}</td><td>{satellite.noradCatalogNumber}</td><td>{satellite.name}</td><td>{satellite.stateTimestamp}</td>
         </tr>
       ));
     }
