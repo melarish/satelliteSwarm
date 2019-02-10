@@ -1,6 +1,5 @@
 import json
 import requests
-from datetime import date
 from http.server import HTTPServer, BaseHTTPRequestHandler
 
 
@@ -18,7 +17,7 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
             if "SWARM" in satellite['name']:
                 swarm.append(satellite)
         for satellite in swarm:
-            url = 'https://api.leolabs.space/v1/catalog/objects/{}/states?date={}'.format(satellite['catalogNumber'], date.today())
+            url = 'https://api.leolabs.space/v1/catalog/objects/{}/states?latest=true'.format(satellite['catalogNumber'])
             r = requests.get(url, headers=headers)
             satellite['stateTimestamp'] = r.json()['states'][0]['timestamp']
         self.send_response(200)

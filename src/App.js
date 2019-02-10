@@ -35,7 +35,7 @@ class App extends Component {
   }
 
   render() {
-    let tableData = null;
+    let tableData = "Loading... This should take a few seconds";
     if(this.state.items.length) {
       tableData = this.state.items.map((satellite) => (
         <tr>
