@@ -1,5 +1,6 @@
 import json
 import requests
+from datetime import datetime
 from http.server import HTTPServer, BaseHTTPRequestHandler
 
 
@@ -21,7 +22,8 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
             r = requests.get(url, headers=headers)
             states = r.json()['states']
             if len(states) > 0:
-                satellite['stateTimestamp'] = states[0]['timestamp']
+                timestamp_formatted = datetime.strptime(states[0]['timestamp'], "%Y-%m-%dT%H:%M:%S.%fZ").strftime("%Y-%m-%d %H:%M:%S")
+                satellite['stateTimestamp'] = timestamp_formatted
         self.send_response(200)
         self.end_headers()
         self.wfile.write(bytes(json.dumps({"results": swarm}), 'utf8'))

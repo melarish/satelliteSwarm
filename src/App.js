@@ -49,13 +49,12 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          Latest SWARM satellite state vectors:
+        <content className="App-content">
+          <h1>Latest SWARM satellite state vectors:</h1>
           <table className="ui celled table">
             <thead>
               <tr>
-                <th>Catalog Number</th><th>Norad ID</th><th>Name</th><th>Most Recent State Vector Timestamp</th>
+                <th>Catalog Number</th><th>NORAD ID</th><th>Name</th><th>Most Recent State Vector Timestamp</th>
               </tr>
             </thead>
             <tbody>
@@ -67,42 +66,10 @@ class App extends Component {
             <img src={animation} alt="" />
             Loading... This should take a few seconds
           </p>}
-        </header>
+        </content>
       </div>
     );
   }
 }
 
 export default App;
-
-/* Can you write a single-page app that can search the LeoLabs catalog
-and show some information about some specific satellites?
-
-I'd like to see a page that presents a table that shows all of the
-objects that have 'SWARM' in their name along with some basic
-information about the latest 'State Vector' for each of those.
-
-I'm imagining a page that contains a table roughly described by this example:
-
-Catalog Number | Norad ID | Name | Most Recent State Vector Timestamp
-L3972 | 39452 | SWARM A | 2019-02-05 19:04:31
-...
-
-Getting Started
-1) Create an account on the LeoLabs Platform.
-https://platform.leolabs.space/register
-
-2) Take a look at the LeoLabs Api Documentation here:
-https://platform.leolabs.space/documentation/api
-
-You can use the 'List all Objects' api to get a list of known Catalog Objects.
-You can use the 'Retrieve State Vectors' api to get 'State Vectors' for objects.
-You may find the the following Catalog Page helpful for validation:
-https://platform.leolabs.space/catalog/L3972
-
-I'm looking for the page content to refresh if the page is reloaded.
-
-This way, if a new "SWARM" object were to appear in the catalog, or if
-there were new "State Vector" objects, that these changes would be
-reflected on the page.
- */

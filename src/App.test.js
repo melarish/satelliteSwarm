@@ -25,7 +25,7 @@ it('fetches data from API', async () => {
                 'catalogNumber': 'L5429',
                 'noradCatalogNumber': 39451,
                 'name': 'SWARM B',
-                'stateTimestamp': '2019-02-09T14:18:53.558976Z'
+                'stateTimestamp': '2019-02-09 14:18:53'
               }
             ]
           });
