@@ -8,7 +8,7 @@ class Header extends Component {
           <a href="/" className="desktop-only header item">
             <img className="logo"
                  src="https://platform-cdn.leolabs.space/static/images/leolabs-logo-eye.png?8afeebbb0f0d392a34ab02f367f0b69aefefd659"
-                 title="LeoLabs"/>
+                 title="LeoLabs" alt=""/>
           </a>
 
           <a href="/catalog" className="item desktop-only"><i className="globe icon"></i> Explore LEO</a>
@@ -36,8 +36,17 @@ class Header extends Component {
           </div>
 
 
-          <div className="active-nav-section item desktop-only">
+          <div className="ui dropdown item desktop-only">
             Developer
+            <i className="dropdown icon"></i>
+            <div className="menu">
+              <a href="/documentation/cli" className="item">CLI Docs</a>
+              <a href="/documentation/cli_quickstart" className="item">CLI Quick Start Guide</a>
+              <a href="/documentation/api" className="item">API Docs</a>
+              <a href="/documentation/api_quickstart" className="item">API Quick Start Guide</a>
+              <a href="/documentation/embeddable_map" className="item">Embeddable Maps</a>
+              <a href="/documentation/ephemerides_file_formats" className="item">Ephemerides File Formats</a>
+            </div>
           </div>
 
           <div className="right menu">
@@ -90,8 +99,8 @@ class Header extends Component {
 
           </div>
         </div>
-        );
-    }
+    );
+  }
 }
 
 export default Header;

@@ -49,7 +49,7 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <content className="App-content">
+        <div className="App-content">
           <h1>Latest SWARM satellite state vectors:</h1>
           <table className="ui celled table">
             <thead>
@@ -67,7 +67,7 @@ class App extends Component {
             Loading... This should take a few seconds
           </p>}
         <Footer />
-        </content>
+        </div>
       </div>
     );
   }
