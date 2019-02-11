@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import Header from './Header.js'
 import logo from './logo.svg';
+import animation from './satellite-animation.gif'
 import './App.css';
 
 class App extends Component {
@@ -35,7 +37,7 @@ class App extends Component {
   }
 
   render() {
-    let tableData = "Loading... This should take a few seconds";
+    let tableData = null;
     if(this.state.items.length) {
       tableData = this.state.items.map((satellite) => (
         <tr>
@@ -46,17 +48,25 @@ class App extends Component {
 
     return (
       <div className="App">
+        <Header />
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          Result:
-          <table>
-            <tbody>
+          Latest SWARM satellite state vectors:
+          <table className="ui celled table">
+            <thead>
               <tr>
-                <td>Catalog Number | </td><td>Norad ID | </td><td>Name | </td><td>Most Recent State Vector Timestamp</td>
+                <th>Catalog Number</th><th>Norad ID</th><th>Name</th><th>Most Recent State Vector Timestamp</th>
               </tr>
+            </thead>
+            <tbody>
               {tableData}
             </tbody>
           </table>
+          {!this.state.items.length &&
+          <p>
+            <img src={animation} alt="" />
+            Loading... This should take a few seconds
+          </p>}
         </header>
       </div>
     );
@@ -65,9 +75,7 @@ class App extends Component {
 
 export default App;
 
-/* https://api.leolabs.space/v1/catalog/objects
-
-Can you write a single-page app that can search the LeoLabs catalog
+/* Can you write a single-page app that can search the LeoLabs catalog
 and show some information about some specific satellites?
 
 I'd like to see a page that presents a table that shows all of the

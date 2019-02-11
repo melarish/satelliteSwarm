@@ -19,7 +19,9 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
         for satellite in swarm:
             url = 'https://api.leolabs.space/v1/catalog/objects/{}/states?latest=true'.format(satellite['catalogNumber'])
             r = requests.get(url, headers=headers)
-            satellite['stateTimestamp'] = r.json()['states'][0]['timestamp']
+            states = r.json()['states']
+            if len(states) > 0:
+                satellite['stateTimestamp'] = states[0]['timestamp']
         self.send_response(200)
         self.end_headers()
         self.wfile.write(bytes(json.dumps({"results": swarm}), 'utf8'))
