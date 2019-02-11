@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
+import Footer from './Footer.js'
 import Header from './Header.js'
-import logo from './logo.svg';
 import animation from './satellite-animation.gif'
 import './App.css';
 
@@ -66,6 +66,7 @@ class App extends Component {
             <img src={animation} alt="" />
             Loading... This should take a few seconds
           </p>}
+        <Footer />
         </content>
       </div>
     );
